@@ -1,15 +1,10 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface IHeroCardProps {
     id: number;
     name: string;
     slug: string;
-    powerstats: {
-        intelligence: number;
-        strength: number;
-        speed: number;
-        durability: number;
-        power: number;
-        combat: number;
-    };
+    powerstats: IPowerStats;
     appearance: {
         gender: string;
         race: string;
@@ -40,4 +35,25 @@ export interface IHeroCardProps {
         md: string;
         lg: string;
     };
+}
+
+export interface IPowerStats {
+    intelligence: number;
+    strength: number;
+    speed: number;
+    durability: number;
+    power: number;
+    combat: number;
+}
+
+
+export interface IModalFightResultProps {
+    openModal: boolean;
+    setOpenModal: Dispatch<SetStateAction<boolean>>
+}
+
+export interface IModalFightAttributeProps<obj> {
+    attribute: keyof obj;
+    fighter1: IPowerStats;
+    fighter2: IPowerStats;
 }

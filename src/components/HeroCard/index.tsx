@@ -9,7 +9,7 @@ const HeroCard = ({ heroData }: { heroData: IHeroCardProps }) => {
     const totalStats = Object.values(powerStats).reduce((total, acc) => total + acc, 0)
 
     return (
-        <div className={styles['hero-card-container']}>
+        <li className={styles['hero-card-container']}>
             <div className={styles['hero-card-img-wrapper']}>
                 <Image src={heroData.images.md} width={50} height={50} alt='img' style={{ borderRadius: '0 0 8px 20px', height: '100%', width: '100%', objectFit: 'cover' }} />
             </div>
@@ -20,7 +20,7 @@ const HeroCard = ({ heroData }: { heroData: IHeroCardProps }) => {
                     <span className={styles['hero-card-power']}>{totalStats}</span>
                 </div>
             </div>
-        </div>
+        </li>
     )
 }
 
