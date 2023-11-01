@@ -14,9 +14,12 @@ const HeroCardsContainer = ({ heroesData }: { heroesData: IHeroCardProps[] }) =>
     const { setAllHeroes } = useContext(HeroesContext)
     const [hasMore, setHasMore] = useState<boolean>(true)
     const [items, setItems] = useState<IHeroCardProps[]>(heroesData.slice(0, 30))
+    const [teste, setTeste] = useState<IHeroCardProps[]>([])
 
     useEffect(() => {
         setAllHeroes(heroesData)
+
+
     }, [heroesData, setAllHeroes, filter, filteredHeroes, items])
 
     useEffect(() => {
@@ -37,6 +40,13 @@ const HeroCardsContainer = ({ heroesData }: { heroesData: IHeroCardProps[] }) =>
             setHasMore(false)
         }
     };
+
+    useEffect(() => {
+        const uniqueArray = heroesData.filter((item, index, self) => {
+            return self.findIndex((el) => el.appearance.gender === item.appearance.gender) === index;
+        });
+        console.log(uniqueArray)
+    }, [teste, heroesData]);
 
 
     return (
