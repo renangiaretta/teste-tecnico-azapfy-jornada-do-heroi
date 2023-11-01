@@ -8,29 +8,35 @@ interface HeroesProviderProps {
 }
 
 interface HeroesProviderValues {
-    // selectedHero1: IHeroCardProps
-    // setSelectedHero1: Dispatch<SetStateAction<IHeroCardProps>>
-    // selectedHero2: IHeroCardProps
-    // setSelectedHero2: Dispatch<SetStateAction<IHeroCardProps>>
     selectedHeroes: IHeroCardProps[]
     setSelectedHeroes: Dispatch<SetStateAction<IHeroCardProps[]>>
+    allHeroes: IHeroCardProps[]
+    setAllHeroes: Dispatch<SetStateAction<IHeroCardProps[]>>
+    filter: string
+    setFilter: Dispatch<SetStateAction<string>>
+    filteredHeroes: IHeroCardProps[]
+    setFilteredHeroes: Dispatch<SetStateAction<IHeroCardProps[]>>
 }
 
 export const HeroesContext = createContext<HeroesProviderValues>({} as HeroesProviderValues)
 
 export const HeroesProvider = ({ children }: HeroesProviderProps) => {
-    const [selectedHero1, setSelectedHero1] = useState<IHeroCardProps>({} as IHeroCardProps)
-    const [selectedHero2, setSelectedHero2] = useState<IHeroCardProps>({} as IHeroCardProps)
     const [selectedHeroes, setSelectedHeroes] = useState<IHeroCardProps[]>([] as IHeroCardProps[])
+    const [allHeroes, setAllHeroes] = useState<IHeroCardProps[]>([])
+    const [filter, setFilter] = useState<string>('')
+    const [filteredHeroes, setFilteredHeroes] = useState<IHeroCardProps[]>([])
 
+    
     return (
         <HeroesContext.Provider value={{
-            // selectedHero1,
-            // setSelectedHero1,
-            // selectedHero2,
-            // setSelectedHero2
             selectedHeroes,
-            setSelectedHeroes
+            setSelectedHeroes,
+            allHeroes,
+            setAllHeroes,
+            filter,
+            setFilter,
+            filteredHeroes,
+            setFilteredHeroes,
         }}>
             {children}
         </HeroesContext.Provider>
