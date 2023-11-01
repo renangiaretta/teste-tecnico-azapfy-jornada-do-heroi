@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './global.sass'
 import { HeroesProvider } from '@/contexts/HeroesContext'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

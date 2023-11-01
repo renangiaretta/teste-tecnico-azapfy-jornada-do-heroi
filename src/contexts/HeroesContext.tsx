@@ -26,7 +26,6 @@ export const HeroesProvider = ({ children }: HeroesProviderProps) => {
     const [filter, setFilter] = useState<string>('')
     const [filteredHeroes, setFilteredHeroes] = useState<IHeroCardProps[]>([])
 
-    
     return (
         <HeroesContext.Provider value={{
             selectedHeroes,

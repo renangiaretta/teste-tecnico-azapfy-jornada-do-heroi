@@ -26,7 +26,7 @@ const HeroCard = ({ heroData }: { heroData: IHeroCardProps }) => {
 
     return (
         <li onClick={selectHeroes} className={
-            changeColor() ? `${styles['hero-card-container']} ${styles['selected']}` : styles['hero-card-container']
+            changeColor() ? `${styles['hero-card-container']} ${styles['selected']}` : `${styles['hero-card-container']} ${styles[heroData.biography.alignment]}`
         }>
             <div className={styles['hero-card-img-wrapper']}>
                 <Image src={heroData.images.md} width={150} height={150} alt='img' style={{ borderRadius: '0 0 8px 20px', height: '100%', width: '100%', objectFit: 'cover' }} />

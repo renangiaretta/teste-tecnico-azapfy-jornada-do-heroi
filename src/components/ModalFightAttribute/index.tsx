@@ -19,7 +19,7 @@ const ModalFightAttribute = ({ attribute, selectedHero1, selectedHero2 }: IModal
             <h4 className={styles['modal-fight-attribute-text']}>{attribute}</h4>
             <div className={styles['modal-fight-attribute-wrapper2']}>
                 <span className={styles['modal-fight-attribute-text']}>{selectedHero2.powerstats[attribute]}</span>
-                <span className={higherAtt() === 'win'
+                <span className={higherAtt() === 'lose'
                     ? `${styles['modal-fight-attribute-circle']} ${styles['win']}`
                     : `${styles['modal-fight-attribute-circle']} ${styles['lose']}`}>
                     x

@@ -7,14 +7,14 @@
     display: grid
     grid-template-columns: 1fr 1.5fr 1fr
     flex-direction: column
+    position: relative
     width: 85%
     height: 85%
     position: absolute
-    background-image: url('/assets/images/comic-bg.png')
-    background-size: cover
-    background-repeat: no-repeat
-    background-position: center
+    background-color: #000000
     border-radius: 8px
+    color: #FFFFFF
+    border: 2px solid #FFD700
 
 .modal-attributes-wrapper
     display: flex
@@ -24,6 +24,7 @@
 
 .modal-attributes-title
     text-align: center
+    color: #00FF00
 
 .modal-attributes-container
     display: flex
@@ -38,3 +39,28 @@
     height: 100%
     justify-content: center
     align-items: center
+
+.modal-fight-hc-btn
+    display: flex
+    position: absolute
+    bottom: 1rem
+    left: 50%
+    transform: translateX(-50%)
+    background-color: #FFD700
+    color: #000000
+    font-size: 1.2rem
+    font-weight: 800
+    &:hover
+        background-color: #FFD700
+        filter: brightness(1.2)
+        scale: 1.02
+
+.modal-fight-close-btn
+    display: flex
+    position: absolute
+    border: 2px solid #FFD700
+    border-radius: 10px
+    top: 1rem
+    right: 1rem
+    padding: 0.5rem
+    color: #FFD700
