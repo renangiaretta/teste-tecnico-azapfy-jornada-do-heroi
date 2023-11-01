@@ -2,15 +2,23 @@
 import styles from './styles.module.sass'
 import { IHeroCardProps } from '@/interfaces/heroes'
 import HeroCard from '../HeroCard'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import ModalFightResult from '../ModalFightResult'
+import { HeroesContext } from '../../contexts/HeroesContext'
+
 
 const HeroCardsContainer = ({ heroesData }: { heroesData: IHeroCardProps[] }) => {
-    console.log(heroesData)
+    const { selectedHeroes, setSelectedHeroes } = useContext(HeroesContext)
     const [openModal, setOpenModal] = useState<boolean>(false)
+
+    useEffect(() => {
+        selectedHeroes.length === 2
+            ? setOpenModal(true)
+            : null
+    }, [selectedHeroes])
+
     return (
         <section className={styles['hero-cards-container']}>
-            <button onClick={() => setOpenModal(true)}>teste</button>
             {
                 heroesData
                     ? heroesData.map((el: IHeroCardProps) => (<HeroCard key={el.id} heroData={el} />))

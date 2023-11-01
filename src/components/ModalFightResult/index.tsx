@@ -3,39 +3,47 @@ import styles from './styles.module.sass'
 import { IModalFightResultProps, IPowerStats } from '@/interfaces/heroes'
 import ModalFightAttribute from '../ModalFightAttribute'
 import ModalFightHeroCard from '../ModalFightHeroCard'
+import { useContext } from 'react'
+import { HeroesContext } from '@/contexts/HeroesContext'
+
 
 const ModalFightResult = ({ openModal, setOpenModal }: IModalFightResultProps) => {
-    const mockStats1: IPowerStats = {
-        intelligence: 10,
-        strength: 10,
-        speed: 45,
-        durability: 15,
-        power: 10,
-        combat: 20,
+    const { selectedHeroes, setSelectedHeroes } = useContext(HeroesContext)
+
+    const fightResult = () => {
+        if (selectedHeroes.length === 2) {
+            const hero1Power = Object.values(selectedHeroes[0].powerstats).reduce((total, acc) => total + acc, 0)
+            const hero2Power = Object.values(selectedHeroes[1].powerstats).reduce((total, acc) => total + acc, 0)
+            if (hero1Power > hero2Power) {
+                return `Vencedor ${selectedHeroes[0].name}`
+            } else if (hero1Power > hero2Power) {
+                return `Vencedor ${selectedHeroes[1].name}`
+            } else {
+                return `Empate`
+            }
+        }
     }
-    const mockStats2: IPowerStats = {
-        intelligence: 102,
-        strength: 15,
-        speed: 10,
-        durability: 10,
-        power: 10,
-        combat: 10,
-    }
+
+
     return (
         <Modal className={styles['modal-bg']} open={openModal} onClose={() => setOpenModal(false)} >
             <Box className={styles['modal-box']}>
                 <div className={styles['modal-card-container']}>
-                    <ModalFightHeroCard />
+                    <ModalFightHeroCard selectedHero={selectedHeroes[0]} />
                 </div>
-                <div className={styles['modal-attributes-container']}>
-                    {
-                        Object.keys(mockStats1).map((el, index) => <ModalFightAttribute key={index} attribute={el as keyof IPowerStats} fighter1={mockStats1} fighter2={mockStats2} />)
-                    }
+                <div className={styles['modal-attributes-wrapper']}>
+                    <h1 className={styles['modal-attributes-title']}>{fightResult()}</h1>
+                    <div className={styles['modal-attributes-container']}>
+                        {
+                            selectedHeroes[1] != null && Object.keys(selectedHeroes[1]).length > 0
+                                ? Object.keys(selectedHeroes[1].powerstats).map((el, index) => <ModalFightAttribute key={index} attribute={el as keyof IPowerStats} selectedHero1={selectedHeroes[0]} selectedHero2={selectedHeroes[1]} />)
+                                : null
+                        }
+                    </div>
                 </div>
                 <div className={styles['modal-card-container']}>
-                    <ModalFightHeroCard />
+                    <ModalFightHeroCard selectedHero={selectedHeroes[1]} />
                 </div>
-                {/* <Button variant='contained' onClick={() => setOpenModal(false)}>Fechar</Button> */}
             </Box>
         </Modal>
     )

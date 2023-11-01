@@ -1,26 +1,27 @@
 import { IModalFightAttributeProps, IPowerStats } from '@/interfaces/heroes'
 import styles from './styles.module.sass'
 
-const ModalFightAttribute = ({ attribute, fighter1, fighter2 }: IModalFightAttributeProps<IPowerStats>) => {
+const ModalFightAttribute = ({ attribute, selectedHero1, selectedHero2 }: IModalFightAttributeProps<IPowerStats>) => {
+
     const higherAtt = () => {
-        return fighter1[attribute] > fighter2[attribute] ? 'fighter1' : 'fighter2';
+        return selectedHero1.powerstats[attribute] > selectedHero2.powerstats[attribute] ? 'win' : 'lose';
     }
     return (
         <div className={styles['modal-fight-attribute-container']}>
             <div className={styles['modal-fight-attribute-wrapper1']}>
-                <span className={styles['modal-fight-attribute-value']}>{fighter1[attribute]}</span>
-                <span className={higherAtt() === 'fighter1'
-                    ? `${styles['modal-fight-attribute-circle']} ${styles['green']}`
-                    : styles['modal-fight-attribute-circle']}>
+                <span className={styles['modal-fight-attribute-text']}>{selectedHero1.powerstats[attribute]}</span>
+                <span className={higherAtt() === 'win'
+                    ? `${styles['modal-fight-attribute-circle']} ${styles['win']}`
+                    : `${styles['modal-fight-attribute-circle']} ${styles['lose']}`}>
                     x
                 </span>
             </div>
-            <h4 className={styles['modal-fight-attribute-']}>{attribute}</h4>
+            <h4 className={styles['modal-fight-attribute-text']}>{attribute}</h4>
             <div className={styles['modal-fight-attribute-wrapper2']}>
-                <span className={styles['modal-fight-attribute-value']}>{fighter2[attribute]}</span>
-                <span className={higherAtt() === 'fighter2'
-                    ? `${styles['modal-fight-attribute-circle']} ${styles['green']}`
-                    : styles['modal-fight-attribute-circle']}>
+                <span className={styles['modal-fight-attribute-text']}>{selectedHero2.powerstats[attribute]}</span>
+                <span className={higherAtt() === 'win'
+                    ? `${styles['modal-fight-attribute-circle']} ${styles['win']}`
+                    : `${styles['modal-fight-attribute-circle']} ${styles['lose']}`}>
                     x
                 </span>
             </div>

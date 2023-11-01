@@ -54,6 +54,10 @@ export interface IModalFightResultProps {
 
 export interface IModalFightAttributeProps<obj> {
     attribute: keyof obj;
-    fighter1: IPowerStats;
-    fighter2: IPowerStats;
+    selectedHero1: IHeroCardProps;
+    selectedHero2: IHeroCardProps;
+}
+
+export interface IModalFightHeroCardProps {
+    selectedHero: IHeroCardProps;
 }
