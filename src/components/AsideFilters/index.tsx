@@ -48,7 +48,10 @@ const AsideFilters = () => {
     return (
         <aside className={styles['aside-filters-container']}>
             <h2>Filtros</h2>
-            <Accordion className={styles['aside-filters-accordion-container']}>
+            <Accordion
+                className={styles['aside-filters-accordion-container']}
+                sx={{ bgcolor: '#FFD700' }}
+            >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -70,7 +73,10 @@ const AsideFilters = () => {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion className={styles['aside-filters-accordion-container']}>
+            <Accordion
+            className={styles['aside-filters-accordion-container']}
+                sx={{ bgcolor: '#FFD700' }}
+            >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
