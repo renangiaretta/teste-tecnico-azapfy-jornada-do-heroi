@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import React from 'react';
-import { Link, Element, Events, animateScroll as scroll, scroller } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 import styles from './styles.module.sass'
 import { FaChevronUp } from 'react-icons/fa';
 

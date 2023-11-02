@@ -6,8 +6,16 @@
 
 .hero-cards-wrapper
     display: flex
-    width: 90%
+    width: 100%
     flex-wrap: wrap
     gap: 1rem
     justify-content: center
     padding: 2rem 0
+
+@media screen and ( max-width: 850px )
+    .hero-cards-container
+        width: 60%
+
+@media screen and ( max-width: 565px )
+    .hero-cards-container
+        width: 100%

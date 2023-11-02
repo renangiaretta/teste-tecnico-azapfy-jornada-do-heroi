@@ -3,7 +3,6 @@ import Image from 'next/image'
 import SearchBar from '../SearchBar'
 import styles from './styles.module.sass'
 import { Avatar, Stack } from '@mui/material'
-import Link from 'next/link'
 import { useContext } from 'react'
 import { HeroesContext } from '@/contexts/HeroesContext'
 

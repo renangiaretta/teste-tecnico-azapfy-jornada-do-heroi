@@ -2,20 +2,23 @@
     display: flex
     width: 100%
     justify-content: space-between
+
 .modal-fight-attribute-wrapper1
     display: flex
-    width: 5rem
+    width: 4.5rem
     justify-content: space-between
     align-items: center
     gap: 0.5rem
+
 .modal-fight-attribute-wrapper2
     display: flex
-    width: 5rem
+    width: 4.5rem
     justify-content: space-between
     align-items: center
     flex-direction: row-reverse
     svg
         text-align: center
+
 .modal-fight-attribute-text
     font-size: 1.5rem
     font-weight: 800
@@ -29,3 +32,24 @@
     overflow: hidden
 .lose
     color: red
+
+@media screen and ( max-width: 1024px )
+    .modal-fight-attribute-text
+        font-size: 1rem
+        font-weight: 600
+    .modal-fight-attribute-wrapper1
+        width: 3rem
+    .modal-fight-attribute-wrapper2
+        width: 3rem
+
+@media screen and ( max-width: 768px )
+    .modal-fight-attribute-text
+        font-size: 0.7rem
+        font-weight: 600
+    .modal-fight-attribute-wrapper1
+        width: 2rem
+    .modal-fight-attribute-wrapper2
+        width: 2rem
+    .win
+        width: 0.4rem
+        height: 0.4rem

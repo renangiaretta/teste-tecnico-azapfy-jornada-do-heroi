@@ -25,12 +25,17 @@
 .modal-attributes-title
     text-align: center
     color: #00FF00
+    margin-bottom: 2rem
+    position: absolute
+    top: 2rem
+    left: 50%
+    transform: translateX(-50%)
 
 .modal-attributes-container
     display: flex
     flex-direction: column
     align-items: center
-    padding: 2rem
+    // padding: 2rem
     gap: 0.5rem
 
 .modal-card-container
@@ -64,3 +69,10 @@
     right: 1rem
     padding: 0.5rem
     color: #FFD700
+
+@media screen and ( max-width: 1024px )
+    .modal-box
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+
+@media screen and ( max-width: 768px )
